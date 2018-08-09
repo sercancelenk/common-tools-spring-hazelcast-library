@@ -10,16 +10,14 @@ Add this library as a depency to pom.xml
 1. Add below annotation to @Configuration class
  `@EnableHazelcastLibrary`
  2. Add your cachestore
-  `
-    @Bean(name = HazelcastCacheMapManager.HazelcastCacheNames.DEFAULT_MAP_FIVE_MINUTES_TTL.name)
-    public HazelcastCacheStore getHzDefaultMapCacheStoreFiveMinutesTTL(@Autowired @Qualifier(HazelcastCacheMapManager.HAZELCAST_INSTANCE) HazelcastInstance hzInstance) {
-        return new HazelcastCacheStore<String, Object>(hzInstance, HazelcastCacheMapManager.HazelcastCacheNames.DEFAULT_MAP_FIVE_MINUTES_TTL.name);
-    }
 
-  `
+    `@Bean(name = HazelcastCacheMapManager.HazelcastCacheNames.DEFAULT_MAP_FIVE_MINUTES_TTL.name)
+     public HazelcastCacheStore getHzDefaultMapCacheStoreFiveMinutesTTL(@Autowired @Qualifier(HazelcastCacheMapManager.HAZELCAST_INSTANCE) HazelcastInstance hzInstance) {
+        return new HazelcastCacheStore<String, Object>(hzInstance, HazelcastCacheMapManager.HazelcastCacheNames.DEFAULT_MAP_FIVE_MINUTES_TTL.name);
+     }`
+
 2. Lastly, inject your cachestore to class
-3. `
-    @Autowired
-    @Qualifier(HazelcastCacheMapManager.HazelcastCacheNames.DEFAULT_MAP_FIVE_MINUTES_TTL.name)
-    private CacheStore cacheStore;
-  `
+
+  `@Autowired
+   @Qualifier(HazelcastCacheMapManager.HazelcastCacheNames.DEFAULT_MAP_FIVE_MINUTES_TTL.name)
+   private CacheStore cacheStore;`
